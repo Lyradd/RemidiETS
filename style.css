@@ -1,0 +1,46 @@
+body {
+  background: linear-gradient(to bottom, #f4f4f4, #ffffff);
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+  margin: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h1 {
+  color: #333;
+}
+
+.card {
+  border: 1px solid #007bff; /* Pinggiran biru tipis */
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  background-color: #fff;
+}
+
+.card h2 {
+  color: black;
+  text-align: center;
+  font-size: 18px;
+}
+
+.detail-button {
+  background-color: #007bff; /* Warna biru pada tombol "Detail" */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 5px;
+  width: 100%;
+  border-radius: 5px;
+  transition: background-color 0.3s; /* Efek hover */
+}
+
+.detail-button:hover {
+  background-color: #0056b3; /* Warna biru yang lebih gelap saat dihover */
+}
