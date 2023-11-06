@@ -6,27 +6,23 @@ async function fetchPokemonData() {
       "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
     );
     const data = await response.json();
-    const results = data.results;
+    const pokemon = data.results;
+    let info = "";
 
-    results.forEach(async (pokemon) => {
-      const response = await fetch(pokemon.url);
-      const pokemonData = await response.json();
-
-      const card = document.createElement("div");
-      card.classList.add("card", "col-md-2", "col-5");
-
-      const name = document.createElement("h2");
-      name.textContent =
-        pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1);
-
-      const detailButton = document.createElement("button");
-      detailButton.textContent = "Detail";
-      detailButton.classList.add("btn", "btn-primary", "btn-block");
-
-      card.appendChild(name);
-      card.appendChild(detailButton);
-      cardsContainer.appendChild(card);
+    pokemon.forEach((p) => {
+      info += `
+        <div class="col-md-3 col-sm-6 my-sm-3 mb-4">
+          <div class="card shadow" style="width: auto; border: 1px solid blue;">
+            <div class="card-body">
+              <h5 class="card-title text-capitalize">${p.name}</h5>
+              <a href="${p.url}" class="btn btn-primary">Detail</a>
+            </div>
+          </div>
+        </div>
+        `;
     });
+
+    cardsContainer.innerHTML = info;
   } catch (error) {
     console.error("Error fetching data:", error);
   }
